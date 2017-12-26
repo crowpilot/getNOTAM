@@ -70,12 +70,14 @@ def parseData():
         parse.feed(f.read())
 
 
-
 def checkData4w():
     file=os.listdir('./notamdata/')
     today = datetime.date.today().day
     rjnhtable="<h2>RJNH</h2><table border='1'>"
     rjngtable="<h3>RJNG</h3><table border='1'>"
+    rjnatable="<h3>RJNA</h3><table border='1'>"
+    rjnktable="<h4>RJNK</h4><table border='1'>"
+    rjtjtable="<h4>RJTJ</h4><table border='1'>"
     for name in file:
         if name=="del" or name=="old":
             break
@@ -83,21 +85,24 @@ def checkData4w():
         f=open("notamdata/"+name,"r")
         line=f.read()
         data=line.split()
-        fromd=data[3]
-        tod=data[5]
-        title=data[1]
         AP=data[0]
         print data
         if AP=="RJNH":
             rjnhtable += '<tr><td><span style="color:black;font-size:20px">'+line+"</span></td></tr>"
         elif AP=="RJNG":
             rjngtable+='<tr><td><span style>'+line+'</span></td></tr>'
+        elif AP=="RJNA":
+            rjnatable+='<tr><td><span style>'+line+'</span></td></tr>'
 #        print data[3]+" "+data[2][8:10]
         f.close()
     rjnhtable+="</table>"
     rjngtable+="</table>"
+    rjnatable+="</table>"
+    rjnktable+="</table>"
+    rjtjtable+="</table>"
+    
     nh=open("html/tables.html","w")
-    nh.write(rjnhtable+rjngtable)
+    nh.write(rjnhtable+rjngtable+rjnatable+rjnktable+rjtjtable)
     nh.close()
     
 if __name__=='__main__':
