@@ -63,7 +63,7 @@ class MyParser(HTMLParser):
 
 
 def parseData():
-    file=os.listdir('/home/pi/getNOTAM/htmldata/')
+    file=os.listdir('./htmldata/')
     for name in file:
         f=open('htmldata/'+name,'r')
         parse=MyParser()
@@ -72,7 +72,7 @@ def parseData():
 
 
 def checkData():
-    file=os.listdir('/home/pi/getNOTAM/notamdata/')
+    file=os.listdir('./notamdata/')
     today = datetime.date.today().day
     for name in file:
         if name=="del" or name=="old":
