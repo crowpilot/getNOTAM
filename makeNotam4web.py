@@ -94,9 +94,9 @@ def checkData4w():
         elif AP=="RJNA":
             rjnatable+='<tr><td><span style>'+line+'</span></td></tr>'
         elif AP=="RJNK":
-            rjnatable+='<tr><td><span style>'+line+'</span></td></tr>'
+            rjnktable+='<tr><td><span style>'+line+'</span></td></tr>'
         elif AP=="RJTJ":
-            rjnatable+='<tr><td><span style>'+line+'</span></td></tr>'
+            rjtjtable+='<tr><td><span style>'+line+'</span></td></tr>'
 #        print data[3]+" "+data[2][8:10]
         f.close()
     rjnhtable+="</table>"
